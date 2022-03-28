@@ -1,2 +1,2 @@
 # BayeSR
-The official implementation of "Bayesian Image Super-Resolution with Deep Modeling of Image Statistics" via TensorFlow
+The official implementation of "Bayesian Image Super-Resolution with Deep Modeling of Image Statistics" which is accepted by *IEEE Transactions on Pattern Analysis and Machine Intelligence*
