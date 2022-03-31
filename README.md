@@ -123,7 +123,7 @@ Here, the dataset `RealWorld` can be replaced with your own real-world image dat
 ## How to train
 Before training, please prepare training datasets at first. Then, the downsampling module of BayeSR was pretrained by the unsupervised [KernelGAN](https://www.wisdom.weizmann.ac.il/~vision/kernelgan/). Finally, BayeSR was trained by fixing the downsampling model.
 ### Prepare training datasets
-DIV2K, Flickr2K, and DPED were used to train BayeSR. All datasets should be included in the folder `data/TrainDatasets/` following a specific directory structure, namely,
+[DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/), [Flickr2K](http://cv.snu.ac.kr/research/EDSR/Flickr2K.tar), and [DPED](http://people.ee.ethz.ch/~ihnatova/index.html) were used to train BayeSR. All datasets should be included in the folder `data/TrainDatasets/` following a specific directory structure, namely,
 ```bash
 DIV2K
   |--DIV2K_HR
