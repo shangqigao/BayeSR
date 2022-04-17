@@ -192,7 +192,7 @@ python bayesr_train.py --task SySR --train_type supervised --gauss_blur --downsa
 ## Citation
 If our work is helpful in your research, please cite this as follows.
 
-[1] S. Gao and X. Zhuang, "Bayesian Image Super-Resolution with Deep Modeling of Image Statistics," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2022.3163307. [[arXiv]]() [[TPAMI]](https://ieeexplore.ieee.org/document/9744488)
+[1] S. Gao and X. Zhuang, "Bayesian Image Super-Resolution with Deep Modeling of Image Statistics," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2022.3163307. [[arXiv]](https://arxiv.org/abs/2204.00623) [[TPAMI]](https://ieeexplore.ieee.org/document/9744488)
 ```
 @ARTICLE{9744488,
   author={Gao, Shangqi and Zhuang, Xiahai},
