@@ -67,7 +67,7 @@ BayeSR was tested on the widely used benchmark datasets for the tasks of ideal S
   - `BayeSR-RWSRx4-psup` trained by the pseudo-supervised strategy of BayeSR
   - `BayeSR-RWSRx4-unsup` trained by the unsupervised strategy of BayeSR
 - `SyntheticSISR.zip` contains one BayeSR models:
-  - `BayeSR-SySRx4-sup` trained by the supervised strategy of BayeSR, where LR images were corrupted by stochastic Gaussian kernel and Gaussian noise, instead of a pret-trained downsampling model. 
+  - `BayeSR-SySRx4-sup` trained by the supervised strategy of BayeSR, where LR images were corrupted by stochastic Gaussian kernel and Gaussian noise, instead of a pretrained downsampling model. 
 
 We have provided the script of testing BayeSR in `src/demo.sh`. Please `cd` your working path to `src/` and start test BayeSR as follows.
  
