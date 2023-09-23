@@ -17,6 +17,7 @@ class Dataloader:
         self.task = args.task
         self.upscale = args.upscale
         self.in_channel = args.in_channel
+        self.kernel_size = args.kernel_size
         self.gauss_blur = args.gauss_blur
         self.motion_blur = args.motion_blur
         self.sigma_read = args.sigma_read
@@ -129,7 +130,7 @@ class Dataloader:
         no_files = no_files*(max_len // len(no_files)) + no_files[:max_len % len(no_files)]
         hr_files = hr_files*(max_len // len(hr_files)) + hr_files[:max_len % len(hr_files)]
         kernels = [loadmat(ke_file) for ke_file in ke_files]
-        kernels = [np.pad(k, (41 - kernel.shape[0])//2) for kernel in kernels]
+        kernels = [np.pad(k, (self.kernel_size - kernel.shape[0])//2) for kernel in kernels]
 
         dataset = tf.data.Dataset.from_tensor_slices((lr_files, kernels, no_files, hr_files))
 
