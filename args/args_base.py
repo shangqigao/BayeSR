@@ -21,6 +21,9 @@ def add_dataset_args(parser: ArgumentParser) -> None:
     parser.add_argument('--motion_blur', action='store_true',
                         help='whether to degrade by random motion blur kernel'
                         )
+    parser.add_argument('--real_blur', action='store_true',
+                        help='whether to degrade by input blur kernel'
+                        )
     parser.add_argument('--sigma_read', type=float, default=0,
                         help='image read noise level, ranges in [0, 25]'
                         )
