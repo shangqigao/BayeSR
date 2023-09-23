@@ -121,7 +121,7 @@ class Trainer(BayeSR):
                 valid_eval = self.KernelGAN.evaluation(valid_ests, valid_image_pl, 'Valid')
             else:
                 #Buld a graph to estimate parameters for BayeSR
-                if args.gauss_blur or args.motion_blur:
+                if args.gauss_blur or args.motion_blur or args.real_blur:
                     train_kernel, valid_kernel = train_kernel_pl, None
                 else:
                     train_kernel, valid_kernel = None, None
