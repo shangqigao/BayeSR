@@ -129,9 +129,10 @@ class Dataloader:
         ke_files = ke_files*(max_len // len(ke_files)) + ke_files[:max_len % len(ke_files)]
         no_files = no_files*(max_len // len(no_files)) + no_files[:max_len % len(no_files)]
         hr_files = hr_files*(max_len // len(hr_files)) + hr_files[:max_len % len(hr_files)]
-        kernels = [loadmat(ke_file)['Kernel'] for ke_file in ke_files]
-        kernels = [np.pad(kernel, (self.kernel_size - kernel.shape[0])//2) for kernel in kernels]
-        kernels = [tf.constant(kernel, tf.float32) for kernel in kernels]
+        if ke_dir is not None:
+            kernels = [loadmat(ke_file)['Kernel'] for ke_file in ke_files]
+            kernels = [np.pad(kernel, (self.kernel_size - kernel.shape[0])//2) for kernel in kernels]
+            kernels = [tf.constant(kernel, tf.float32) for kernel in kernels]
 
         dataset = tf.data.Dataset.from_tensor_slices((lr_files, kernels, no_files, hr_files))
 
