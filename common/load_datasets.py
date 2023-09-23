@@ -129,8 +129,9 @@ class Dataloader:
         ke_files = ke_files*(max_len // len(ke_files)) + ke_files[:max_len % len(ke_files)]
         no_files = no_files*(max_len // len(no_files)) + no_files[:max_len % len(no_files)]
         hr_files = hr_files*(max_len // len(hr_files)) + hr_files[:max_len % len(hr_files)]
-        kernels = [loadmat(ke_file)['kernel'] for ke_file in ke_files]
+        kernels = [loadmat(ke_file)['Kernel'] for ke_file in ke_files]
         kernels = [np.pad(kernel, (self.kernel_size - kernel.shape[0])//2) for kernel in kernels]
+        kernels = [tf.constant(kernel, tf.float32) for kernel in kernels]
 
         dataset = tf.data.Dataset.from_tensor_slices((lr_files, kernels, no_files, hr_files))
 
@@ -138,7 +139,6 @@ class Dataloader:
             print('Reading images!')
             lr_image = tf.image.decode_image(tf.read_file(lr_file), channels=self.in_channel)
             if ke_dir is not None:
-                kernel = tf.constant(kernel, tf.float32)
                 kernel = tf.expand_dims(kernel, 2)
             else:
                 kernel = tf.constant(np.zeros([25, 25, 1], np.float32), tf.float32)
