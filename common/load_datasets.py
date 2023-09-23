@@ -142,7 +142,7 @@ class Dataloader:
             if ke_dir is not None:
                 kernel = tf.expand_dims(kernel, 2)
             else:
-                kernel = tf.constant(np.zeros([25, 25, 1], np.float32), tf.float32)
+                kernel = tf.constant(np.zeros([self.kernel_size, self.kernel_size, 1], np.float32), tf.float32)
 
             if no_dir is not None:
                 noise = tf.image.decode_image(tf.read_file(no_file), channels=self.in_channel)
