@@ -22,7 +22,7 @@ class BayeSR:
         #VGG19 checkpoints
         self.content_layer = 'vgg_19/conv4/conv4_2'
         # blurring HR if true
-        self.blurring = self.args.gauss_blur or self.args.motion_blur
+        self.blurring = self.args.gauss_blur or self.args.motion_blur or self.args.real_blur
         
     def set_regularizer(self, reg_type):
         if reg_type == 'l1':
