@@ -137,7 +137,7 @@ class Dataloader:
             lr_image = tf.image.decode_image(tf.read_file(lr_file), channels=self.in_channel)
             if ke_dir is not None:
                 kernel = tf.constant(kernel, tf.float32)
-                kernel = tf.expand_dims(kernel, 0)
+                kernel = tf.expand_dims(kernel, 2)
             else:
                 kernel = tf.constant(np.zeros([25, 25, 1], np.float32), tf.float32)
 
