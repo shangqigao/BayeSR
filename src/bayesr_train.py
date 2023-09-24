@@ -225,8 +225,10 @@ class Trainer(BayeSR):
                 if args.gauss_blur or args.motion_blur:
                     kernel_batch = util.generate_batch_random_kernel(ke_size, tr_batch_size, args.gauss_blur, 
                                                                      args.motion_blur, args.upscale)
+                    feed_dict.update({train_kernel_pl: kernel_batch})
+                if args.gauss_blur or args.motion_blur or args.real_blur:
                     noise_batch = util.generate_read_shot_noise(feed_dict[train_image_pl], 12, 4, True)
-                    feed_dict.update({train_kernel_pl: kernel_batch, train_noise_pl: noise_batch})
+                    feed_dict.update({train_noise_pl: noise_batch})
 
                 #Save a checkpoint and evaluate the model periodically.
                 if step == init_step + 1 or step % 1000 == 0:
