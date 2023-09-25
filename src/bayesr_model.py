@@ -397,6 +397,8 @@ class BayeSR:
             log_muw = tf.stop_gradient(log_muw)
 
             # Downsample z
+            if is_training and self.args.train_type != 'supervised' and ker_batch is not None:
+                ker_batch = tf.concat([ker_batch, ker_batch], 0)
             dz = z if self.args.task == 'DEN' else self.Downsampling(z, kernel=ker_batch)
 
              # CNN_x
